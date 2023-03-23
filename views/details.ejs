@@ -1,0 +1,28 @@
+<div>
+    <a href="/getdetails">Get Details</a>
+    </div>
+    <hr>
+    
+    <% if(details!=null) { %>
+    <table style="width:1%">
+    <tr>
+        <th>name</th>
+        <th>mobile no. </th>
+        <th>email</th>
+        
+        <th>Date </th>
+        <th>Time</th>
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.name%></td>
+        <td><%= item.mobile %></td>
+        <td><%= item.email%></td>
+        <td><%= item.estimatedTimeOfArrival %></td>
+        <td><%= item.date%></td>
+        <td><%= item.time%></td>
+    
+    </tr>
+    <% }) %>
+    </table>
+    <% } %>
