@@ -2,6 +2,10 @@ const express=require('express')
 const app=express();
 const path=require('path');
 const fs=require('fs');
+const nodemailer = require('nodemailer');
+
+
+//for otp varification
 
 //for checking date
 // let date=new Date().toLocaleDateString()//convert into object to string
@@ -27,7 +31,7 @@ const accident_addres=require('./accident_schema');
 htmlfilepath=path.join(__dirname,'htmlpages1');
 // console.log(htmlfilepath);
 
-
+// this express.static(which file where css) is a middleware use for use css and image in ejs template
 app.use(express.static(htmlfilepath));
 // app.use(express.urlencoded());  //it will trow error
 app.use(express.urlencoded({extended: true}));  //here dont require app.json
@@ -38,7 +42,9 @@ app.set('view engine','ejs');
 
 app.get('',(req,resp)=>   // in '' in this is have defoult file which have index
 {
-    resp.sendFile(`${htmlfilepath}/index.html`);
+    // resp.sendFile(`${htmlfilepath}/index.html`);
+    // first it send index.html which in htmlfilepathe when we render ejs index also send index.html when we delete index.html than it render index.ejs 
+    // index.html have more privoty than ejs 
     resp.render('index');
     // console.log(req.query);
 
@@ -177,6 +183,39 @@ if(password===cpassword){
     
        let result=await data.save();
        console.log(result);
+
+       //send mail
+
+       
+
+// // create reusable transporter object using the default SMTP transport
+// let transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'vickyjayswal12@gmail.com',
+//         pass: '30858012'
+//     }
+// });
+
+// // send mail with defined transport object
+// let mailOptions = {
+//     from: 'vickyjayswal12@gmail.com',
+//     to: req.body.email,
+//     subject: 'Registration Confirmation',
+//     text: 'Thank you for registering!'
+// };
+
+// transporter.sendMail(mailOptions, function(error, info){
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.log('Email sent: ' + info.response);
+//     }
+// });
+
+
+
+
        resp.sendFile(`${htmlfilepath}/login.html`);
     }
 

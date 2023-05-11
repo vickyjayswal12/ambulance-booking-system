@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(121, 116, 116);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .otp
+        {
+            height: 40vh;
+            width: 30vw;
+            background-color: aliceblue;
+            border: solid 2px black;
+        }
+        form{
+            padding: 10vh;
+        }
+        #submit{
+            background-color: green;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div class="otp">
+            <form action="/varify_otp">
+              <center><h3><b>otp </b>has been sent registred mail</h3></center>
+              <br>
+              <br>
+               <center> <input type="number" name="otp" id="otp"></center>
+                <!-- <input type="email" name="email" id="email"> -->
+                <br>
+                <br>
+               <center><input id="submit" type="submit" value="varify otp" formmethod="post"></center> 
+            </form>
+        </div>
+        </main>
+
+</body>
+
+</html>
